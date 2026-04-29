@@ -34,8 +34,8 @@ pipeline {
         stage('Run Container') {
             steps {
                 echo 'Starting container...'
-                bat 'docker stop student-app-container || true'
-                bat 'docker rm student-app-container || true'
+                bat 'docker stop student-app-container 2>nul'
+                bat 'docker rm student-app-container 2>nul'
                 bat 'docker run -d --name student-app-container -p 8080:8080 student-app'
             }
         }
